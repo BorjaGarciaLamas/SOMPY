@@ -248,7 +248,7 @@ class SOM(object):
                             radiusin=train_finetune_radiusin, radiusfin=train_finetune_radiusfin,trainlen_factor=train_len_factor,maxtrainlen=maxtrainlen)
         logging.debug(
             " --------------------------------------------------------------")
-        logging.info(" Final quantization error: %f" % np.mean(self._bmu[1]))
+        logging.info(" Final quantization error: %f, top error : %f" % self.calculate_quantization_error() , self.calculate_topographic_error())
 
     def _calculate_ms_and_mpd(self):
         mn = np.min(self.codebook.mapsize)
